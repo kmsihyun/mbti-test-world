@@ -21,3 +21,14 @@ test('미완료 응답 거부',()=>{
  assert.throws(()=>calculate([]));assert.throws(()=>calculate(Array(20).fill('A')));
 });
 test('로또 결과 영역',()=>assert.match(fs.readFileSync('lotto1.html','utf8'),/id="result-container"/));
+test('성격 도감은 16개 유형의 설명과 성장·대화 정보를 제공한다',()=>{
+ const {types,groups,axes}=require('./types.js');
+ assert.equal(Object.keys(types).length,16);
+ for(let mask=0;mask<16;mask++){
+  const code=pairs.map((p,i)=>p[(mask>>i)&1]).join('');
+  const item=types[code];assert.ok(item);assert.ok(groups[item.group]);
+  for(const key of ['title','summary','strength','growth','communication'])assert.ok(item[key].length>5);
+  assert.equal(item.tags.length,3);
+ }
+ assert.deepEqual(axes.map(a=>a.pair),pairs);
+});
