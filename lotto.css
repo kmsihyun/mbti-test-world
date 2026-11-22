@@ -1,0 +1,79 @@
+.lotto {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 32px 56px;
+}
+.lotto-intro { margin-bottom: 32px; }
+.lotto-intro h1 {
+  font-size: clamp(42px, 7vw, 72px);
+  letter-spacing: -.075em;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+.lotto-intro h1 span { color: #936321; margin-left: .22em; font-size: .48em; vertical-align: top; }
+.lotto-intro p, .lotto-note { color: #536459; }
+.lotto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+.lotto-picker, .lotto-ticket {
+  padding: clamp(16px, 3vw, 32px);
+  border-radius: 22px;
+}
+.lotto-picker { background: #fffef9; border: 1px solid var(--line); }
+.lotto-ticket { background: #234636; color: #f8f4df; box-shadow: 0 10px 0 #dbe3d4; }
+.lotto-layout h2 { margin: 0; font-size: 20px; }
+.lotto-heading, .lotto-tools { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.lotto-heading output { font-weight: 750; color: var(--green); font-variant-numeric: tabular-nums; }
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 5px;
+  margin: 20px 0;
+}
+.number-grid button {
+  min-height: 44px;
+  padding: 0;
+  border-radius: 9px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.number-grid button[aria-pressed="true"] { background: #315e49; color: #fff; border-color: #315e49; }
+.lotto-tools button { padding: 9px 16px; min-height: 44px; }
+.lotto-balls {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  margin: 14px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+.lotto-balls li {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #eaf0dc;
+  color: #234636;
+  font-size: clamp(13px, 2vw, 22px);
+  font-weight: 800;
+}
+.lotto-balls li[aria-hidden] { background: transparent; border: 1px dashed #94a98e; color: #bbccb0; }
+.lotto-balls li.match { background: #f9d478; box-shadow: inset 0 0 0 2px #ac772e; }
+.lotto-stub { border-top: 1px dashed #97ab90; padding-top: 20px; }
+#draw-message { min-height: 3.4em; font-size: 14px; color: #e1ead8; }
+#reveal-mode { border: 0; padding: 0; margin: 0 0 12px; }
+#reveal-mode legend { font-size: 13px; color: #e1ead8; }
+#reveal-mode label { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-right: 12px; }
+#reveal-mode input { width: auto; accent-color: #f9d478; }
+#draw { width: 100%; background: #f9d478; border-color: #f9d478; color: #234636; }
+.lotto-note { margin-top: 26px; font-size: 13px; }
+@media (max-width: 780px) {
+  .lotto { padding: 26px 18px 36px; }
+  .lotto-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .number-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
